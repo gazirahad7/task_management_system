@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/css/form.css" />
+
+<%- include("../template/header"); -%>
+<div class="main-form">
+  <center>
+    <div class="floating-form">
+      <form action="/edit" method="POST">
+        <h2>Task Edit Form</h2>
+        <div class="floating-label">
+          <input
+            type="text"
+            class="floating-input"
+            name="taskName"
+            value="<%= show.task_title %> "
+            placeholder=" "
+          />
+          <label>Title:</label>
+        </div>
+
+        <div class="floating-label">
+          <textarea
+            class="floating-input floating-textarea"
+            name="taskDetails"
+            rows="5"
+            placeholder=" "
+          >
+      <%= show.task_details %></textarea
+          >
+
+          <label>Textarea</label>
+        </div>
+
+        <div class="floating-label">
+          <input
+            class="floating-input"
+            type="text"
+            onclick="(this.type='date')"
+            name="taskStDate"
+            value="<%= show.task_st_time %> "
+            placeholder=" "
+          />
+          <label>Start Date</label>
+        </div>
+
+        <div class="floating-label">
+          <input
+            class="floating-input"
+            type="text"
+            onclick="(this.type='date')"
+            name="taskEndDate"
+            value="<%= show.task_end_time %> "
+            placeholder=" "
+          />
+          <label>End Date</label>
+        </div>
+
+        <div class="floating-label">
+          <select
+            class="floating-select"
+            onclick="this.setAttribute('value', this.value);"
+            name="employeeName"
+          >
+            <option value="<%= show.id %>">
+              <%= show.first_name + ' ' + show.last_name %>
+            </option>
+          </select>
+          <span class="highlight"></span>
+          <label>Select</label>
+        </div>
+        <input type="hidden" name="postID" value="<%= show.id %> " />
+
+        <button type="submit" class="my-btn">
+          Submit<span class="lab la-telegram-plane my-icon"></span>
+        </button>
+      </form>
+    </div>
+  </center>
+</div>
+
+<%- include("../template/footer"); -%>

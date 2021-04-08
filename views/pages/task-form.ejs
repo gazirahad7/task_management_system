@@ -1,0 +1,79 @@
+
+    <link rel="stylesheet" href="/css/form.css" />
+
+
+  <%- include("../template/header"); -%>
+<div class="main-form">
+<center>
+    <div class="floating-form">
+      <form action="/submit" method="POST">
+        <h1>Task Form</h1>
+        <div class="floating-label">
+          <input
+            type="text"
+            class="floating-input"
+            name="taskName"
+            placeholder=" "
+          />
+          <label>Title:</label>
+        </div>
+
+        <div class="floating-label">
+          <textarea
+            class="floating-input floating-textarea"
+            name="taskDetails"
+            placeholder=" "
+          ></textarea>
+
+          <label>Textarea</label>
+        </div>
+
+        <div class="floating-label">
+          <input
+            class="floating-input"
+            type="text"
+            onclick="(this.type='date')"
+            name="taskStDate"
+            placeholder=" "
+          />
+          <label>Start Date</label>
+        </div>
+
+        <div class="floating-label">
+          <input
+            class="floating-input"
+            type="text"
+            onclick="(this.type='date')"
+            name="taskEndDate"
+            placeholder=" "
+          />
+          <label>End Date</label>
+        </div>
+
+        <div class="floating-label">
+          <select
+            class="floating-select"
+            onclick="this.setAttribute('value', this.value);"
+            name="employeeName"
+            value=""
+          >
+            <% allData.map(ele => { %>
+            <option ></option>
+            <option value="<%= ele.id %> ">
+              <%= ele.first_name + ' ' + ele.last_name %>
+            </option>
+            <%}) %>
+          </select>
+          <span class="highlight"></span>
+          <label>Select</label>
+        </div>
+
+        <button type="submit" class="my-btn">Submit<span class="lab la-telegram-plane my-icon"></span></button>
+      </form>
+    </div>
+  </center>
+
+</div>
+  
+  <%- include("../template/footer"); -%>
+</html>

@@ -1,0 +1,66 @@
+<%- include("../template/header"); -%>
+
+<div class="task-show">
+  <h2>Employees Tasks List</h2>
+  <div class="table-responsive">
+    <table width="100%">
+      <thead>
+        <tr>
+          <td>Employee Name</td>
+          <td>Task Title</td>
+          <td>Start Date</td>
+          <td>End Date</td>
+          <td>Task Details</td>
+          <td>Action</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% taskData.map((ele,i) => {%>
+        <tr>
+          <td><%= ele.first_name + ' ' + ele.last_name %></td>
+          <td><%= ele.task_title %></td>
+          <td><%= ele.task_st_time %></td>
+          <td><%= ele.task_end_time %></td>
+
+          <!-- <td><%# ele.task_details %></td> -->
+          <td>
+            <button class="myBtn my-btn">Show More</button>
+
+            <div class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+
+                <p><%=ele.task_details %></p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <a href="/edit/<%= ele.id %>"
+              ><span class="las la-user-edit my-edit"></span>
+            </a>
+            <a
+              onclick="return confirm('Are you sure ?')"
+              href="/del/<%= ele.id %>"
+            >
+              <span class="las la-user-times my-delete"></span
+            ></a>
+          </td>
+        </tr>
+
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <a href="/">
+    <button type="submit" class="my-btn">
+      Go to Home<span class="las la-home my-icon"></span></button
+  ></a>
+</div>
+
+<!-- modal-->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+</div>
+<%- include("../template/footer"); -%>

@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="/css/form.css" />
+
+<%- include("../template/header"); -%>
+<div class="main-form">
+  <center>
+    <div class="floating-form">
+      <form action="/update" method="POST">
+        <h2>Singin Form</h2>
+        <div class="floating-label">
+          <input
+            type="text"
+            class="floating-input"
+            name="firstName"
+            value="<%= show.first_name %> "
+            placeholder=" "
+          />
+          <label>First Name:</label>
+        </div>
+
+        <div class="floating-label">
+          <input
+            type="text"
+            name="lastName"
+            class="floating-input"
+            value="<%= show.last_name %> "
+            placeholder=" "
+          />
+          <label>Last Name:</label>
+        </div>
+
+        <div class="floating-label">
+          <input
+            type="number"
+            name="salary"
+            class="floating-input"
+            value="<%= show.employee_salary %>"
+            placeholder=" "
+          />
+          <label> Salary:</label>
+        </div>
+        <input type="hidden" name="postID" value="<%= show.id %> " />
+        <button type="submit" class="my-btn">
+          Submit<span class="lab la-telegram-plane my-icon"></span>
+        </button>
+      </form>
+    </div>
+  </center>
+</div>
+
+<%- include("../template/footer"); -%>

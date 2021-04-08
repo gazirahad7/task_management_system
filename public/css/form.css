@@ -1,0 +1,120 @@
+.main-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* background: linear-gradient(to right, #c31432, #240b36); */
+
+  background: linear-gradient(
+    to right,
+    #b92b27,
+    #1565c0
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.floating-form h2 {
+  margin-bottom: 30px;
+}
+
+.my-icon {
+  font-size: 30px;
+  color: #ddd;
+}
+.my-btn {
+  font-size: 20px;
+  padding: 4px 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  background: #dd2f6e;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.floating-form {
+  width: 500px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+/****  floating-Lable style start ****/
+
+.floating-label {
+  position: relative;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+/* .floating-select // add class use option input fild */
+.floating-input {
+  color: #eee;
+}
+.floating-select {
+  color: #000;
+}
+.floating-input,
+.floating-select {
+  font-size: 14px;
+  padding: 4px 4px;
+  display: block;
+  width: 100%;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #757575;
+  margin: 5px 0;
+}
+/*  */
+.floating-input:focus,
+.floating-select:focus {
+  outline: none;
+  border-bottom: 2px solid #fff;
+}
+
+label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 5px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.floating-input:focus ~ label,
+.floating-input:not(:placeholder-shown) ~ label {
+  top: -18px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.floating-select:focus ~ label,
+.floating-select:not([value=""]):valid ~ label {
+  top: -18px;
+  font-size: 14px;
+  color: #5264ae;
+}
+/* active state */
+.floating-input:focus ~ .bar:before,
+.floating-input:focus ~ .bar:after,
+.floating-select:focus ~ .bar:before,
+.floating-select:focus ~ .bar:after {
+  width: 50%;
+}
+
+.floating-textarea {
+  min-height: 50px;
+  max-height: 260px;
+  overflow: hidden;
+  overflow-x: hidden;
+}
+@media only screen and (max-width: 960px) {
+  .floating-form {
+    width: 300px;
+  }
+}

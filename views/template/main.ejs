@@ -1,0 +1,153 @@
+<%- include("../template/header"); -%>
+
+<section>
+  <input type="checkbox" id="nav-toggle" />
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <h2><span class="lab la-accusoft"></span><span>Admin Plaen</span></h2>
+    </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li>
+          <a href="" class="active"
+            ><span class="las la-users"></span> <span>Dashboard</span></a
+          >
+        </li>
+        <li>
+          <a href="/"
+            ><span class="las la-shipping-bag"></span> <span>Home</span></a
+          >
+        </li>
+        <li>
+          <a href="/insert"
+            ><span class="las la-receipt"></span> <span>Add Employee</span></a
+          >
+        </li>
+        <li>
+          <a href="/task-show"
+            ><span class="las la-user-circle"></span> <span>Add Task</span></a
+          >
+        </li>
+        <li>
+          <a href="/submit"
+            ><span class="las la-clipboard-list"></span>
+            <span>Show Task</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <h2>
+        <label for="nav-toggle">
+          <span class="las la-bars my-class"></span>
+        </label>
+        Dashboard
+      </h2>
+      <div class="search-wrapper">
+        <span class="las la-search"> </span>
+        <input type="search" placeholder="Search heare" />
+      </div>
+      <div class="user-wrapper">
+        <img src="/profile.png" alt="" height="50px" width="50px" />
+        <div>
+          <h4>Gazi Rahad</h4>
+          <small>Super Admin</small>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="cards">
+        <div class="card-single">
+          <div>
+            <h1>54</h1>
+            <span>Customers</span>
+          </div>
+          <div>
+            <span class="las la-user"></span>
+          </div>
+        </div>
+
+        <div class="card-single">
+          <div>
+            <h1>54</h1>
+            <span>Customers</span>
+          </div>
+          <div>
+            <span class="las la-user"></span>
+          </div>
+        </div>
+
+        <div class="card-single">
+          <div>
+            <h1>54</h1>
+            <span>Customers</span>
+          </div>
+          <div>
+            <span class="las la-user"></span>
+          </div>
+        </div>
+        <div class="card-single">
+          <div>
+            <h1>54</h1>
+            <span>Customers</span>
+          </div>
+          <div>
+            <span class="las la-user"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recent-grid">
+        <div class="projects">
+          <div class="card">
+            <div class="card-header">
+              <h2>Recent Projects</h2>
+              <button>see all <span class="las la-arrow-right"></span></button>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table width="100%">
+                  <thead>
+                    <tr>
+                      <td>Name</td>
+                      <td>Salary</td>
+                      <td>Action</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% allData.map(ele => {%>
+                    <tr>
+                      <td><%= ele.first_name + ele.last_name %></td>
+                      <td><%= ele.employee_salary %></td>
+                      <td>
+                        <a href="/update/<%= ele.id %>"
+                          ><button type="button">Edit</button></a
+                        >
+                        <a href="/delete/<%= ele.id %>"
+                          ><button
+                            type="button"
+                            onclick="return confirm('Are you sure ?')"
+                          >
+                            Delete
+                          </button></a
+                        >
+                      </td>
+                    </tr>
+
+                    <% }) %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="customers"></div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<%- include("../template/footer"); -%>

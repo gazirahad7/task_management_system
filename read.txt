@@ -1,0 +1,8 @@
+SELECT COUNT(`employee_salary`) FROM employees
+//
+SELECT SUM(employee_salary) as total_employee_salary FROM employees
+
+SELECT AVG(`employee_salary`) FROM employees
+
+SELECT * FROM `employees_tasks` WHERE employees_id IN (SELECT `id` FROM `employees`)
+SELECT COUNT(id) as task_count FROM employees_tasks
